@@ -1,0 +1,30 @@
+# Build directories
+.gradle/
+build/
+out/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated files
+server.pem
+keystore.jks
+create_cert.py
+
+# Demo directory
+d:/ftps_demo/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

@@ -1,0 +1,3 @@
+@echo off
+echo Starting Python Plain FTP Server...
+python ftp_server.py
