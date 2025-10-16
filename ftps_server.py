@@ -3,11 +3,11 @@ from pyftpdlib.servers import FTPServer
 import os
 
 # Tạo thư mục demo
-os.makedirs("d:/ftps_demo", exist_ok=True)
+os.makedirs("demo_files", exist_ok=True)
 
 # Authorizer
 authorizer = DummyAuthorizer()
-authorizer.add_user("demo", "demo123", "d:/ftps_demo", perm="elradfmwMT")
+authorizer.add_user("demo", "demo123", "demo_files", perm="elradfmwMT")
 
 # Try import TLS handler
 try:
@@ -28,7 +28,7 @@ handler.authorizer = authorizer
 server = FTPServer(("127.0.0.1", 2121), handler)
 print("FTPS Server started on 127.0.0.1:2121")
 print("Username: demo, Password: demo123")
-print("Directory: d:/ftps_demo")
+print("Directory: demo_files")
 if tls_enabled:
     print("TLS: Enabled (Explicit)")
 else:

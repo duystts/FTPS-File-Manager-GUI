@@ -1,19 +1,46 @@
 @echo off
 echo Installing Python FTP server...
 
+REM Kiểm tra Python
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo Python không tìm thấy!
+    echo Chạy install_python.bat để cài Python trước.
+    pause
+    exit /b 1
+)
+
+echo Python đã cài đặt.
+
 REM Cài đặt dependencies
 echo Installing pyftpdlib...
-pip install pyftpdlib
+pip install pyftpdlib >nul 2>&1
+if errorlevel 1 (
+    echo pip không hoạt động, thử python -m pip...
+    python -m pip install pyftpdlib
+) else (
+    echo pyftpdlib installed successfully
+)
 
 echo Installing pyopenssl for TLS support...
-pip install pyopenssl
+pip install pyopenssl >nul 2>&1
+if errorlevel 1 (
+    python -m pip install pyopenssl
+) else (
+    echo pyopenssl installed successfully
+)
 
 echo Installing cryptography for certificate generation...
-pip install cryptography
+pip install cryptography >nul 2>&1
+if errorlevel 1 (
+    python -m pip install cryptography
+) else (
+    echo cryptography installed successfully
+)
 
-REM Tạo thư mục demo
-if not exist d:\ftps_demo mkdir d:\ftps_demo
-echo Created demo directory: d:\ftps_demo
+REM Tạo thư mục demo trong project
+if not exist demo_files mkdir demo_files
+echo Created demo directory: demo_files
 
 REM Tạo certificate script
 echo Creating certificate generator...
@@ -56,6 +83,6 @@ echo Demo credentials:
 echo   Host: localhost
 echo   Username: demo
 echo   Password: demo123
-echo   Directory: d:\ftps_demo
+echo   Directory: demo_files
 echo.
 pause
