@@ -15,8 +15,8 @@ handler = FTPHandler
 handler.authorizer = authorizer
 
 # Server
-server = FTPServer(("127.0.0.1", 2121), handler)
-print("Plain FTP Server started on 127.0.0.1:2121")
+server = FTPServer(("127.0.0.1", 21), handler)
+print("Plain FTP Server started on 127.0.0.1:21")
 print("Username: demo, Password: demo123")
 print("Directory: demo_files")
 print("Press Ctrl+C to stop")

@@ -25,8 +25,8 @@ except ImportError:
 handler.authorizer = authorizer
 
 # Server
-server = FTPServer(("127.0.0.1", 2121), handler)
-print("FTPS Server started on 127.0.0.1:2121")
+server = FTPServer(("127.0.0.1", 990), handler)
+print("FTPS Server started on 127.0.0.1:990")
 print("Username: demo, Password: demo123")
 print("Directory: demo_files")
 if tls_enabled:
